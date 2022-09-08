@@ -3,7 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/btn_background.xml" value="0.1255" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ed_background.xml" value="0.1255" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_bell.xml" value="0.146" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_chat.xml" value="0.146" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_group_39805.xml" value="0.146" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_homemusapp.xml" value="0.146" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_music.xml" value="0.146" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/activity_login.xml" value="0.14666666666666667" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/activity_main.xml" value="0.11775362318840579" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/fragment_splash.xml" value="0.22" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/menu/bottom_nav.xml" value="0.1515625" />
       </map>
     </option>
   </component>

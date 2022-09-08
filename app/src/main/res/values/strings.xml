@@ -2,4 +2,11 @@
     <string name="app_name">My Music App</string>
     <string name="main_text">My Music</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="ed_email">Enter your email</string>
+    <string name="ed_password">Enter your password</string>
+    <string name="ed_name">Enter your name </string>
+    <string name="ed_last_name">Enter last name </string>
+    <string name="login_message">Don’t have an account? Sign Up</string>
 </resources>
