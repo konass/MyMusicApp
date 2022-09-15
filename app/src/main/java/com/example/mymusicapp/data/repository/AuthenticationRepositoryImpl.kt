@@ -27,7 +27,7 @@ class AuthenticationRepositoryImpl @Inject constructor(
         return auth.currentUser != null
     }
 
-    override fun getFirebaseAuthState(): Flow<Boolean> = callbackFlow {
+    override  fun getFirebaseAuthState(): Flow<Boolean> = callbackFlow {
         val authStateListener = FirebaseAuth.AuthStateListener {
             trySend(auth.currentUser == null)
         }

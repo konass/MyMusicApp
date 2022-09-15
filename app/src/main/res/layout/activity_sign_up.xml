@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.authentication.SignUpActivity">
+    tools:context=".presentation.authentication.SignUpActivity"
+    android:background="@color/background">
     <EditText
         android:id="@+id/ed_name"
         android:layout_width="0dp"
@@ -62,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ed_last_name" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/ed_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -86,7 +87,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_semi_bold"
-        android:text="@string/sign_in"
+        android:text="@string/sign_up"
         android:textColor="@color/main_text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_signUp"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="15dp"
@@ -110,14 +111,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txt_signIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="@string/login_message"
-        android:textSize="16sp"
-        android:textColor="@color/dark_gray_blue"
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
         android:fontFamily="@font/poppins_regular"
+        android:minHeight="48dp"
+        android:onClick="backToSignIn"
+        android:text="@string/login_message"
+        android:textColor="@color/dark_gray_blue"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

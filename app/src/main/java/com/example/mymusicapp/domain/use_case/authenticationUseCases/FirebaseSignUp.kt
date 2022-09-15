@@ -33,7 +33,9 @@ class FirebaseSignUp @Inject constructor(
                 followers  = emptyList(),
                 nFollowers = null
             )
-            repository.setUserDataInfoOnDatabase(user)
+            if (operationSuccessful){
+                repository.setUserDataInfoOnDatabase(user)
+            }
             emit(Response.Success(operationSuccessful))
         }catch (e: Exception) {
             emit(Response.Error(e.localizedMessage ?: "An Unexpected Error"))

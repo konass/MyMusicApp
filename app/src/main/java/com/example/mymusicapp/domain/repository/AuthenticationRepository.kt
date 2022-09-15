@@ -14,6 +14,6 @@ interface AuthenticationRepository {
    suspend fun signIn(email: String, password: String): Task<AuthResult>
    suspend fun signUp(email: String, password: String, name: String, lastName: String): Task<AuthResult>
    suspend fun signOut()
-    fun getCurrentUserId():String
+   fun getCurrentUserId():String
     suspend fun setUserDataInfoOnDatabase(user: User)
 }

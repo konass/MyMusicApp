@@ -1,9 +1,12 @@
 package com.example.mymusicapp.data.firebaseDatabase
 
+import android.util.Log
 import com.example.mymusicapp.domain.models.Post
 import com.example.mymusicapp.domain.models.User
 import com.example.mymusicapp.utils.Constants
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -27,7 +30,17 @@ class DatabaseFromFirebase @Inject constructor(
             }
     }
     override suspend fun setUserDataInfoOnDatabase(user: User) {
-        databaseRef.child("users").child(user.userId).setValue(user).await()
+      //  databaseRef.child("users").child(user.userId).setValue(user).await()
+    val db = Firebase.firestore
+        db.collection("users")
+            .add(user)
+            .addOnSuccessListener { documentReference ->
+                Log.d("MyLog", "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.w("MyLog", "Error adding document", e)
+            }
+
     }
 
     override suspend fun getCurrentUserData(id: String): User {

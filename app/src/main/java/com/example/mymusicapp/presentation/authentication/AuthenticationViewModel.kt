@@ -3,10 +3,13 @@ package com.example.mymusicapp.presentation.authentication
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.mymusicapp.domain.use_case.authenticationUseCases.AuthenticationUseCases
 import com.example.mymusicapp.utils.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,6 +33,31 @@ class AuthenticationViewModel @Inject constructor(
                 is Response.Success -> _signInState.value = Response.Success(true)
                 is Response.Error -> _signInState.value = Response.Error("An unexpected error")
             }
-        }
+        }.launchIn(viewModelScope)
+    }
+    fun signUp (email: String, password: String, name: String, lastName: String){
+        authUseCases.firebaseSignUp(email, password, name, lastName).onEach {
+            when(it){
+                is Response.Loading-> _signUpState.value = Response.Loading
+                is Response.Success -> _signUpState.value = Response.Success(true)
+                is Response.Error -> _signUpState.value = Response.Error("An unexpected error")
+            }
+        }.launchIn(viewModelScope)
+    }
+    fun signOut (){
+        authUseCases.firebaseSignOut().onEach {
+            when(it){
+                is Response.Loading-> _signOutState.value = Response.Loading
+                is Response.Success -> _signOutState.value = Response.Success(true)
+                is Response.Error -> _signOutState.value = Response.Error("An unexpected error")
+            }
+        }.launchIn(viewModelScope)
+    }
+   fun getFirebaseAuthState() {
+            viewModelScope.launch{
+                authUseCases.firebaseAuthState().collect{
+                    _firebaseAuthState.value =it
+                }
+            }
     }
 }
