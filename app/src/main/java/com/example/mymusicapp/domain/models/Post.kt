@@ -5,9 +5,11 @@ data class Post(
     var imageUrl: String,
     //var music: Music,
     var author: User? = null,
+    var postText: String = "",
     var time : Long?=0L,
     var userId: String="",
     var nLikes: Int? = null,
     var likes: List<String>? = null,
-    var comments: List<String>? = null
+    var comments: List<String>? = null,
+var music: Music? = null
 )

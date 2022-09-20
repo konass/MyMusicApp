@@ -18,6 +18,7 @@ class AuthenticationViewModel @Inject constructor(
 ) : ViewModel()
 {
     val isUserAuthenticated get() = authUseCases.firebaseIsUserAuthenticated()
+    val getCurrentUserId get() = authUseCases.getUserId
     private val _signInState = mutableStateOf<Response<Boolean>>(Response.Success(false))
     val signInState: State<Response<Boolean>> = _signInState
     private val _signUpState = mutableStateOf<Response<Boolean>>(Response.Success(false))

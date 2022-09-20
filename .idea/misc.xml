@@ -5,17 +5,26 @@
       <map>
         <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/btn_background.xml" value="0.1255" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ed_background.xml" value="0.1255" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_add.xml" value="0.138" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_bell.xml" value="0.146" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_chat.xml" value="0.146" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_group_39805.xml" value="0.146" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_homemusapp.xml" value="0.146" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_logo.xml" value="0.1515" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/ic_music.xml" value="0.146" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/drawable/post_item.xml" value="0.1515" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/activity_login.xml" value="0.16666666666666666" />
-        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/activity_main.xml" value="0.3402777777777778" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/activity_post.xml" value="0.12760416666666666" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/activity_sign_up.xml" value="0.16666666666666666" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/fragment_chat.xml" value="0.11775362318840579" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/fragment_people.xml" value="0.12760416666666666" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/fragment_post.xml" value="0.16666666666666666" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/fragment_profile.xml" value="0.17617753623188406" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/fragment_splash.xml" value="0.22" />
+        <entry key="..\:/android/MyMusicApp/app/src/main/res/layout/post_item.xml" value="0.1" />
         <entry key="..\:/android/MyMusicApp/app/src/main/res/menu/bottom_nav.xml" value="0.1515625" />
       </map>
     </option>

@@ -30,12 +30,13 @@ class LoginActivity : AppCompatActivity() {
                 lifecycleScope.launchWhenStarted {
                     viewModel.signIn(email, password)
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    intent.putExtra("UserId","${viewModel.getCurrentUserId}")
                     startActivity(intent)
                 }
             } else {
                 Toast.makeText(this, "Please enter all the data", Toast.LENGTH_LONG).show()
             }
-            when (val resource = viewModel.signUpState.value) {
+            when (val resource = viewModel.signInState.value) {
                 is Response.Loading -> {
                 }
                 is Response.Success -> {

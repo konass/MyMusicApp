@@ -40,6 +40,7 @@ class SignUpActivity : AppCompatActivity() {
                 lifecycleScope.launchWhenStarted {
                     viewModel.signUp(email, password, name, lastName)
                     val intent = Intent(this@SignUpActivity, MainActivity::class.java)
+                    intent.putExtra("UserId","${viewModel.getCurrentUserId}")
                     startActivity(intent)
                 }
             } else {

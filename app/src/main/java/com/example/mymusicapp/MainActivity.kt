@@ -7,6 +7,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mymusicapp.databinding.ActivityMainBinding
 import com.example.mymusicapp.presentation.authentication.LoginActivity
+import com.example.mymusicapp.presentation.authentication.SignUpActivity
+import com.example.mymusicapp.presentation.post.PostActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
@@ -23,6 +25,11 @@ class MainActivity : AppCompatActivity() {
             bottom_nav.setupWithNavController(
                 navController = nav_host_fragment.findNavController()
             )
-
+        val userId=intent.getStringExtra("Username")
+addPost.setOnClickListener {
+    val intent = Intent(this@MainActivity, PostActivity::class.java)
+    intent.putExtra("UserId","$userId")
+    startActivity(intent)
+}
     }
 }
