@@ -16,7 +16,7 @@ interface Database {
     suspend fun getCurrentUserData(id: String): User
     suspend fun getAllUsers(): List<User>
     fun getPostId(): String
-    fun getUserId():String
+//    fun getUserId():String
   //  suspend fun getAllPosts(user: User): List<Post>
 }
 
@@ -42,18 +42,12 @@ private var db: FirebaseFirestore
 
     override suspend fun setUserDataInfoOnDatabase(user: User) {
         db.collection("users")
-            .add(user)
-            .addOnSuccessListener { documentReference ->
-                Log.d("MyLog", "DocumentSnapshot added with ID: ${documentReference.id}")
-            }
-            .addOnFailureListener { e ->
-                Log.w("MyLog", "Error adding document", e)
-            }
+            .document(user.userId).set(user)
     }
 
     override suspend fun setPostDataInfoOnDatabase(post: Post) : Task<Void> {
         val postId = db.collection("posts").document().id
-      return  db.collection("post")
+      return  db.collection("posts")
             .document(postId).set(post)
 
     }
@@ -69,9 +63,9 @@ private var db: FirebaseFirestore
     override fun getPostId(): String {
       return db.collection("posts").document().id
     }
-    override fun getUserId(): String {
-        return db.collection("users").document().id
-    }
+//    override fun getUserId(): String {
+//        return db.collection("users").document().id
+//    }
 }
 
 

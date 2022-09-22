@@ -1,5 +1,6 @@
 package com.example.mymusicapp.domain.repository
 
+import android.net.Uri
 import com.example.mymusicapp.domain.models.Music
 import com.example.mymusicapp.domain.models.Post
 import com.example.mymusicapp.domain.models.User
@@ -15,4 +16,5 @@ interface PostRepository {
     suspend fun setPostDataOnDatabase(post: Post): Task<Void>
     fun getPostId() : String
     fun getUserId() : String
+   suspend fun uploadPhoto(image: Uri) : String
 }

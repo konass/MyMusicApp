@@ -1,7 +1,10 @@
 package com.example.mymusicapp.domain.models
 
+import com.google.firebase.firestore.DocumentId
+
 data class User
     (
+
 var userId: String = "",
 var password: String= "",
 var email: String= "",
