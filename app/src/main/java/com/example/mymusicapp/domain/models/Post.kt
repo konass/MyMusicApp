@@ -1,6 +1,9 @@
 package com.example.mymusicapp.domain.models
 
+import com.google.firebase.firestore.DocumentId
+
 data class Post(
+    @DocumentId
     var postId : String = "",
     var imageUrl: String,
     //var music: Music,

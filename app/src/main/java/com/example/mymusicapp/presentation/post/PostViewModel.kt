@@ -1,5 +1,6 @@
 package com.example.mymusicapp.presentation.post
 
+import android.net.Uri
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -12,6 +13,7 @@ import com.example.mymusicapp.utils.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -45,5 +47,10 @@ class PostViewModel @Inject constructor(
                 is Response.Error -> _setPostState.value = Response.Error("An unexpected error")
             }
         }.launchIn(viewModelScope)
+    }
+    fun uploadImage(image: Uri){
+        viewModelScope.launch {
+            postUseCases.uploadImage.invoke(image)
+        }
     }
 }
