@@ -1,5 +1,6 @@
 package com.example.mymusicapp.presentation.apadters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,8 +37,17 @@ return PostViewHolder(
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
        val post = differ.currentList[position]
         holder.itemView.apply{
-Glide.with(this).load(post.imageUrl).into(im_post)
-tv_post.text = post.postText
+            try{
+                Glide.with(getContext()).load(post.imageUrl).into(im_post)
+            }catch(e: NullPointerException){
+                Log.e("MyTag", e.toString())
+            }
+            try{
+                tv_post.text = post.postText
+            }catch(e: NullPointerException){
+                Log.e("MyTag", e.toString())
+            }
+
         }
     }
 

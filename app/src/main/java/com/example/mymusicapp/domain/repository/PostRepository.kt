@@ -6,6 +6,7 @@ import com.example.mymusicapp.domain.models.Post
 import com.example.mymusicapp.domain.models.User
 import com.example.mymusicapp.utils.Response
 import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.coroutines.flow.Flow
 
 interface PostRepository {
@@ -17,4 +18,5 @@ interface PostRepository {
     fun getPostId() : String
     fun getUserId() : String
    suspend fun uploadPhoto(image: Uri) : String
+   suspend fun getAllPosts():MutableList<Post>
 }

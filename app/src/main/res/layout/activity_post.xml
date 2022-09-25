@@ -44,6 +44,7 @@
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/blue_gray"
                     android:contentDescription="add"
+                    android:scaleType="center"
                     android:src="@drawable/ic_add" />
             </androidx.cardview.widget.CardView>
 

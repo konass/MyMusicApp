@@ -10,6 +10,7 @@ import com.example.mymusicapp.domain.repository.PostRepository
 import com.example.mymusicapp.utils.Response
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -38,6 +39,10 @@ class PostRepositoryImpl @Inject constructor(
 
     override suspend fun uploadPhoto(image: Uri): String {
         return storage.uploadImage(image)
+    }
+
+    override suspend fun getAllPosts(): MutableList<Post>{
+      return  database.getAllPosts()
     }
 
 }

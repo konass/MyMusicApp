@@ -9,6 +9,7 @@ import com.example.mymusicapp.data.repository.PostRepositoryImpl
 import com.example.mymusicapp.domain.repository.AuthenticationRepository
 import com.example.mymusicapp.domain.repository.PostRepository
 import com.example.mymusicapp.domain.use_case.authenticationUseCases.*
+import com.example.mymusicapp.domain.use_case.postUseCases.GetPostsUseCase
 import com.example.mymusicapp.domain.use_case.postUseCases.PostUseCases
 import com.example.mymusicapp.domain.use_case.postUseCases.SetPostDataOnDatabase
 import com.example.mymusicapp.domain.use_case.postUseCases.UploadImage
@@ -48,8 +49,8 @@ object AppModule {
     @Provides
     fun provideStorage(
         storageRef: StorageReference,
-        auth: FirebaseAuth
-    ): Storage= StorageByFireBase(storageRef,auth)
+        database: Database
+    ): Storage= StorageByFireBase(storageRef,database)
     @Provides
     @Singleton
     fun provideFirebaseFirestore() = FirebaseFirestore.getInstance()
@@ -77,6 +78,7 @@ object AppModule {
     @Provides
     fun providePostUseCase(repository: PostRepository) = PostUseCases(
         setPostDataOnDatabase = SetPostDataOnDatabase(repository = repository),
-        uploadImage = UploadImage(repository=repository)
+        uploadImage = UploadImage(repository=repository),
+        getPostsUseCase = GetPostsUseCase(repository=repository)
     )
 }

@@ -4,9 +4,14 @@ import android.util.Log
 import com.example.mymusicapp.domain.models.Music
 import com.example.mymusicapp.domain.models.Post
 import com.example.mymusicapp.domain.models.User
+import com.example.mymusicapp.utils.Response
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 interface Database {
@@ -17,7 +22,7 @@ interface Database {
     suspend fun getAllUsers(): List<User>
     fun getPostId(): String
 //    fun getUserId():String
-  //  suspend fun getAllPosts(user: User): List<Post>
+   suspend fun getAllPosts(): MutableList<Post>
 }
 
 class DatabaseFromFirebase @Inject constructor(
@@ -25,20 +30,10 @@ class DatabaseFromFirebase @Inject constructor(
 private var db: FirebaseFirestore
 ) : Database {
 
-   /* override fun getAllPosts(user: User): List<Post> {
-        databaseRef = Firebase.database.reference
-      db.collection("users")
-            .get()
-            .addOnSuccessListener { querySnapshot ->
-                querySnapshot.forEach { document ->
+   override suspend fun getAllPosts(): MutableList<Post> {
+       return db.collection("posts").get().await().toObjects(Post::class.java)
 
-                    Log.d("MyLog", "Read document with ID ${document.id}")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w("MyLog", "Error getting documents $exception")
-            }
-    }*/
+   }
 
     override suspend fun setUserDataInfoOnDatabase(user: User) {
         db.collection("users")
