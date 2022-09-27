@@ -13,12 +13,12 @@ import javax.inject.Inject
 class GetPostsUseCase @Inject constructor(
     private val repository: PostRepository
 ){
-  lateinit var   postList: List<Post?>
+   private var   postList: MutableList<Post?> = emptyArray<Post?>().toMutableList()
     operator fun invoke (): Flow<Response<List<Post?>>> = flow{
         try {
             emit(Response.Loading)
             repository.getAllPosts().forEach{
-              postList = listOf(it)
+              postList.add(it)
             }
             emit(Response.Success(postList))
         }catch (e: Exception) {

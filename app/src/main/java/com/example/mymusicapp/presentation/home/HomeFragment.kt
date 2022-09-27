@@ -21,36 +21,21 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
-  //lateinit var binding: FragmentHomeBinding
     lateinit var postAdapter: PostAdapter
-
     private lateinit var postList : List<Post?>
-
     private val viewModel by viewModels<HomeViewModel>()
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        // Inflate the layout for this fragment
-//        binding= FragmentHomeBinding.inflate(layoutInflater, container,false)
-//        return binding.root
-//    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getPosts()
-
         Log.e("HomeFragment", "im in home" )
         initPostAdapter()
         lifecycleScope.launchWhenStarted {
-
             viewModel.getPostState.collect{
                 when(it){
                     is Response.Success -> {
                         Log.e("HomeFragment", ""+ it.data.size)
                         postList = it.data
                         postAdapter.differ.submitList(postList)
-
                     }
                     is Response.Error -> {
 
@@ -66,15 +51,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             }
         }
-
-
     }
-
     private fun initPostAdapter() {
         postAdapter = PostAdapter()
      rv_posts.apply {
             adapter = postAdapter
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         }
     }
 }

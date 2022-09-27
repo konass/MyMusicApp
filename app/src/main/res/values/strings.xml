@@ -9,4 +9,10 @@
     <string name="ed_name">Enter your name </string>
     <string name="ed_last_name">Enter last name </string>
     <string name="login_message">Don’t have an account? Sign Up</string>
+    <string name="profile_description">My name is Catherine. I like dancing in the rain and travelling all around the world.</string>
+    <string name="ed_profile">Edit profile</string>
+    <string name="followers">followers</string>
+    <string name="following">following</string>
+    <string name="posts">posts</string>
+    <string name="music">music</string>
 </resources>
