@@ -1,10 +1,8 @@
 package com.example.mymusicapp.domain.use_case.postUseCases
 
 import com.example.mymusicapp.domain.models.Post
-import com.example.mymusicapp.domain.models.User
 import com.example.mymusicapp.domain.repository.PostRepository
 import com.example.mymusicapp.utils.Response
-import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await

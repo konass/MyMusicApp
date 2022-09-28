@@ -27,7 +27,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getPosts()
-        Log.e("HomeFragment", "im in home" )
         initPostAdapter()
         lifecycleScope.launchWhenStarted {
             viewModel.getPostState.collect{

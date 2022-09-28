@@ -1,8 +1,5 @@
 package com.example.mymusicapp.presentation.home
 
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mymusicapp.domain.models.Post

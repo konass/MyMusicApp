@@ -8,6 +8,7 @@ import com.example.mymusicapp.utils.Response
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -32,7 +33,6 @@ private var db: FirebaseFirestore
 
    override suspend fun getAllPosts(): MutableList<Post> {
        return db.collection("posts").get().await().toObjects(Post::class.java)
-
    }
 
     override suspend fun setUserDataInfoOnDatabase(user: User) {
@@ -47,8 +47,8 @@ private var db: FirebaseFirestore
 
     }
 
-    override suspend fun getCurrentUserData(id: String): User {
-        TODO("Not yet implemented")
+    override suspend fun getCurrentUserData(userId: String): User {
+        return db.collection("users").document(userId).get().await().toObject(User::class.java)!!
     }
 
     override suspend fun getAllUsers(): List<User> {

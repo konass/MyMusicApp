@@ -6,7 +6,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mymusicapp.domain.models.Music
-import com.example.mymusicapp.domain.models.Post
 import com.example.mymusicapp.domain.models.User
 import com.example.mymusicapp.domain.use_case.postUseCases.PostUseCases
 import com.example.mymusicapp.utils.Response
